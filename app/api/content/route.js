@@ -72,16 +72,8 @@ export async function PUT(req) {
 export async function DELETE(req) {
   const body = await req.json();
 
-  let index = data.findIndex((item) => item.id === body.id);
-  if (index >= 0) {
-    delete data[index];
+  data = data.filter((item) => item.id !== body.id);
 
-    return Response.json(data);
-  } else {
-    return Response.json({ "no data found": true });
-
-  }
-
-
+  return Response.json(data);
 
 }
