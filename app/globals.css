@@ -6,6 +6,7 @@
   --bgColor: #0e1229;
   --borderSideBarMenu: #686363bb;
   --foreground: #fff;
+  --deActiveTxt: #d4d1d1cb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +14,8 @@
     --bgColor: #0e1229;
     --borderSideBarMenu: #686363bb;
     --foreground: #fff;
+    --deActiveTxt: #d4d1d1cb;
+
   }
 }
 
