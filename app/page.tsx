@@ -1,8 +1,9 @@
+import HomeComponent from "@/components/home";
 import Image from "next/image";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:3000/api/content");
-  const data = await res.json();
+  // const res = await fetch("http://localhost:3000/api/content");
+  // const data = await res.json();
 
   // const resPost = await fetch("http://localhost:3000/api/content", {
   //   method: "POST",
@@ -44,7 +45,7 @@ export default async function Home() {
   // console.log(dataDelete,'============dataDelete')
   return (
     < >
-    
+    <HomeComponent/>
     </>
   );
 }
