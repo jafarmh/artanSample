@@ -31,10 +31,10 @@ export const ContentApi = createApi({
         }),
 
         ContentEdit: builder.mutation<void, ContentUpdatePropsApi>({
-            query: ({ id, ...res }) => ({
-                url: "content/" + id,
+            query: (body) => ({
+                url: "content" ,
                 method: 'PUT',
-                body:res
+                body
            
             }),
             invalidatesTags: ['Content'],
@@ -42,8 +42,9 @@ export const ContentApi = createApi({
 
         ContentRemove: builder.mutation<void, ContentRemovePropsApi>({
             query: (body) => ({
-                url: "content/" + body.id,
+                url: "content"  ,
                 method: 'DELETE',
+                body
 
             }),
             invalidatesTags: ['Content'],

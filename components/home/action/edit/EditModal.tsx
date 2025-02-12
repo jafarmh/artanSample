@@ -4,21 +4,19 @@ import React, { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as Yup from "yup"
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ContentAddPropsApi } from '@/types/interfaces/ContentInterface';
-import { useContentAddMutation } from '@/data/services/Content';
+import {  ContentUpdatePropsApi } from '@/types/interfaces/ContentInterface';
+import {  useContentEditMutation } from '@/data/services/Content';
 import FormItem from '../form';
+import { ContentData } from '@/types/ContentData';
+ 
 
-export default function AddModal({ openModal, ChangeOpen }: { openModal: boolean, ChangeOpen: (value: boolean) => void }) {
-    const [Add, results] = useContentAddMutation()
-
+export default function EditModal({ openModal, ChangeOpen,data }: { openModal: boolean, ChangeOpen: (value: boolean) => void,data:ContentData }) {
+    const [Edit, results] = useContentEditMutation()
     const [open, setOpen] = React.useState(false)
-
     const CloseModal = () => {
-        
         setOpen(false);
         ChangeOpen(false);
     }
-
 
     const Schema = Yup.object().shape({
         title: Yup.string().required(("Validation.require")),
@@ -27,20 +25,27 @@ export default function AddModal({ openModal, ChangeOpen }: { openModal: boolean
     const { handleSubmit, control, formState: { errors }, getValues, setValue, reset } = useForm<any>({
         resolver: yupResolver(Schema)
     });
-    const OnFinish: SubmitHandler<ContentAddPropsApi> = (data) => {
+    const OnFinish: SubmitHandler<ContentUpdatePropsApi> = (data) => {
         if (data?.title !== undefined) {
-            Add(data);
+            Edit(data);
         }
     }
 
     useEffect(() => {
+        
+        if(openModal){
+
+            reset({
+                id: data.id,
+                title: data.title,
+                content:data.content
+            });
+        }
         setOpen(openModal)
-        reset();
     }, [openModal])
 
     useEffect(() => {
         if (results.isSuccess) {
-            
             CloseModal()
         }
 
@@ -51,7 +56,7 @@ export default function AddModal({ openModal, ChangeOpen }: { openModal: boolean
 
     return (
         <>
-            <ModalComponent showClose={false} ChangeOpen={() => { }} Open={open} title='Add Item'>
+            <ModalComponent showClose={false} ChangeOpen={() => { }} Open={open} title='Edit Item'>
                 <form className="flex flex-col   justify-center mt-10 p-10" onSubmit={handleSubmit((values: any) => OnFinish(values))}    >
                     <FormItem control={control} errors={errors} getValues={getValues} setValue={setValue} />
 

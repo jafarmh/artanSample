@@ -8,7 +8,8 @@ export type ModalProps= {
     children: React.ReactNode,
     ChangeOpen: Function,
     showClose?: boolean,
-    title: string
+    title: string,
+    classCss?:string
   }
 
   export type FormComponentProps= {
