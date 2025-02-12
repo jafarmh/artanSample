@@ -4,6 +4,7 @@
 
 :root {
   --bgColor: #0e1229;
+  --bgColorCard: #2e3354;
   --borderSideBarMenu: #686363bb;
   --foreground: #fff;
   --deActiveTxt: #d4d1d1cb;
@@ -12,6 +13,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bgColor: #0e1229;
+    --bgColorCard: #2e3354;
     --borderSideBarMenu: #686363bb;
     --foreground: #fff;
     --deActiveTxt: #d4d1d1cb;

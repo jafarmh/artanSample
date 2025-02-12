@@ -8,7 +8,7 @@ export default function Layout({children}:{children:React.ReactNode}) {
     <>
     <div className='flex flex-row min-h-screen py-2'>
         <Sidebar/>
-        <div className='flex flex-col w-full'>
+        <div className='flex flex-col w-full gap-y-10'>
             <Header/>
             {children}
 
