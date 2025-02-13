@@ -1,4 +1,4 @@
-import HomeComponent from "@/components/home";
+import HomeComponent from "@/components/pages/home";
 import Image from "next/image";
 
 export default async function Home() {

@@ -22,3 +22,9 @@ export type ModalProps= {
     emptyFile?:boolean,
     watch?:any
   }
+
+  export type DashboardInfoCard = {
+    title: string,
+    value: string,
+    percent:string
+  }
