@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { ContentApi } from './services/Content'
-
+import  Sidebar  from './slice/sidebar/Sidebar'
 export const store = configureStore({
   reducer: {
  
-
+    Sidebar,
     [ContentApi.reducerPath]: ContentApi.reducer,
  
 

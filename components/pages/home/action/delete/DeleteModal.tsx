@@ -51,13 +51,13 @@ export default function DeleteModal({ openModal, ChangeOpen,data }: { openModal:
 
     return (
         <>
-            <ModalComponent classCss='!w-[50%] !h-[30%]' showClose={false} ChangeOpen={() => { }} Open={open} title='Edit Item'>
+            <ModalComponent classCss='!w-[70%] !h-[50%]' showClose={false} ChangeOpen={() => { }} Open={open} title='Remove Item'>
 
                     <div className='w-full '>
                         <p className='text-red-400 font-bold text-2xl  m-2'>?Are you sure you want to delete {data.title}
 
                         </p>
-                        <div className="w-full  r flex flex-row gap-6 justify-center">
+                        <div className="w-full flex-wrap flex flex-row gap-6 justify-center ">
                             <button className='p-4 bg-red-600 rounded' type='submit' disabled={results.isLoading} key={"buttonForm"} onClick={() => Remove({id:data.id})} >
                                 <b>Remove</b>
                             </button>
